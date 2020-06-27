@@ -1,5 +1,4 @@
-
-const mybject = {
+var mybject = {
 	"numbers" : [],
 	"myInputs" : "",
 	"num1" : "",
@@ -137,18 +136,37 @@ function num9() {
 // here try change
 this.ope_add.addEventListener("click", adding.bind(this));
 function adding() {
+ if (mybject.mult_index == 0) {	
    mybject.ope = "+";
    mybject.myInputs += ",";
    mybject.add_index += 1;	
    this.screen.text += " + ";
-	
+ } 	else {
+	 // restart no alowed complex functions
+	 this.screen.text = "";
+	 mybject.numbers = [];
+	 mybject.myInputs = "";
+     mybject.result = 0;
+     mybject.mult_index = 0;
+	 mybject.add_index = 0;
+ }
 }
 this.ope_multi.addEventListener("click", multiplaing.bind(this));
 function multiplaing() {
+ if (mybject.add_index == 0) {		
    mybject.myInputs += ",";
    mybject.ope = "*";
    mybject.mult_index += 1;	
    this.screen.text += " * ";
+ } else {
+	 	 // restart no alowed complex functions
+	 this.screen.text = "";
+	 mybject.numbers = [];
+	 mybject.myInputs = "";
+     mybject.result = 0;
+     mybject.mult_index = 0;
+	 mybject.add_index = 0;
+} 
 }
 
 // = 
@@ -180,3 +198,4 @@ function final_result() {
 
   
 }
+
